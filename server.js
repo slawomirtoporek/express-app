@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 
 app.use('/user', (req, res, next) => {
   if(isUser()) next();
-  else res.send('You need to log in!');
+  else res.show('forbidden.html');
 });
 
 app.get('/', (req, res) => {
