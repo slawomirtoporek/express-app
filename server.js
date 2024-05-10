@@ -14,6 +14,10 @@ app.get('/', (req, res) => {
   res.show('index.html');
 });
 
+app.get('/about', (req, res) => {
+  res.show('about.html');
+});
+
 app.listen(8000, () => {
   console.log('Server is running on port: 8000');
 });
