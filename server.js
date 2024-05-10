@@ -3,11 +3,20 @@ const path = require('path');
 
 const app = express();
 
+const isUser = () => {
+  return false;
+};
+
 app.use((req, res, next) => {
   res.show = (name) => {
     res.sendFile(path.join(__dirname, `/views/${name}`));
   };
   next();
+});
+
+app.use('/user', (req, res, next) => {
+  if(isUser()) next();
+  else res.send('You need to log in!');
 });
 
 app.get('/', (req, res) => {
